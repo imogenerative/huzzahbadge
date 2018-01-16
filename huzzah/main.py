@@ -1,28 +1,35 @@
-# import network
-# import webrepl
+#import network
+#import webrepl
 
-import machine
+import board
+import digitalio
 
 from time import sleep
 from ucollections import namedtuple
 
-from constants import *
 from screen import Screen
 
-'''
+NAME=''
+
+jobs = namedtuple('jobs', 'a b c')
+JOBS = jobs(a='', b='', c='')
+emails = namedtuple('emails', 'a b c')
+EMAILS = emails(a='', b='', c='')
+
+NUMBER = 0
+INTERNATIONAL = True
+
 # WiFi details if required
-SSID = ''
-PASSWD = ''
-wlan = network.WLAN(network.STA_IF)
-wlan.active(True)
-wlan.connect(SSID, PASSWD)
-'''
+#SSID = ''
+#PASSWD = ''
+#wlan = network.WLAN(network.STA_IF)
+#wlan.active(True)
+#wlan.connect(SSID, PASSWD)
 
 # digital input pins for the FeatherWing input buttons on the Feather HUZZAH
-buttonA = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP)
-buttonB = machine.Pin(16, machine.Pin.IN)  # pin 16 has a 100kΩ pullup
-buttonC = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
-
+buttonA = digitalio.DigitalInOut(board.GPIO0)
+buttonB = digitalio.DigitalInOut(board.GPIO16)
+buttonC = digitalio.DigitalInOut(board.GPIO2)
 '''
 variable declarations
 '''
@@ -33,10 +40,10 @@ delay = 0.5  # built-in delay between readings
 "void"() {} setup
 '''
 # set up MicroPython web REPL if wifi is configured
-if SSID:
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    webrepl.start()
+#if SSID:
+#    wlan = network.WLAN(network.STA_IF)
+#    wlan.active(True)
+#    webrepl.start()
 
 screen = Screen(JOBS)
 tag = None
@@ -62,11 +69,11 @@ sleep(1)
 '''
 while True:
     # inputs are pulled up, value False when triggered.
-    if not buttonA.value():
-        screen.voltage(False)
-        sleep(2)
+    #if not buttonB.value():
+    #    screen.voltage(False)
+    #    sleep(2)
 
-    if not buttonC.value():
+    if not buttonA.value():
         modulo += 1
         sleep(delay)
 

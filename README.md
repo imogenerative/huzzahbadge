@@ -6,3 +6,5 @@ _Version 0.2_
 
 To do:
 * get some soup, scrape the talk schedule
+
+## THIS HASN'T BEEN THIS FOR A WHILE NOW IT'S A PRONOUN RANDOMISER

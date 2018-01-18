@@ -10,7 +10,7 @@ int randomNumber;
 int indentTop;
 int indentBottom;
 
-String nomative;
+String nominative;
 String accusative;
 String genitive;
 
@@ -32,13 +32,13 @@ void loop() {
 
   randomNumber = random(0, 3);
   if (randomNumber % 3 == 0) {
-    nomative = "they";
+    nominative = "they";
   }
   if (randomNumber % 3 == 1) {
-    nomative = "she";
+    nominative = "she";
   }
   if (randomNumber % 3 == 2) {
-    nomative = "he";
+    nominative = "he";
   }
   randomNumber = random(0, 3);
   if (randomNumber % 3 == 0) {
@@ -61,7 +61,7 @@ void loop() {
     genitive = "his";
   }
 
-  topLine = nomative + "/";
+  topLine = nominative + "/";
   bottomLine = accusative + "/" + genitive;
 
   indentTop = (127 - (topLine.length() * 12)) / 2;

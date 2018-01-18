@@ -10,12 +10,12 @@ int randomNumber;
 int indentTop;
 int indentBottom;
 
-String subject;
-String object;
-String possessive;
+String nomative;
+String accusative;
+String genitive;
 
-String top;
-String bottom;
+String topLine;
+String bottomLine;
 
 
 void setup() {
@@ -32,50 +32,50 @@ void loop() {
 
   randomNumber = random(0, 3);
   if (randomNumber % 3 == 0) {
-    subject = "they";
+    nomative = "they";
   }
   if (randomNumber % 3 == 1) {
-    subject = "she";
+    nomative = "she";
   }
   if (randomNumber % 3 == 2) {
-    subject = "he";
+    nomative = "he";
   }
   randomNumber = random(0, 3);
   if (randomNumber % 3 == 0) {
-    object = "them";
+    accusative = "them";
   }
   if (randomNumber % 3 == 1) {
-    object = "her";
+    accusative = "her";
   }
   if (randomNumber % 3 == 2) {
-    object = "him";
+    accusative = "him";
   }
   randomNumber = random(0, 3);
   if (randomNumber % 3 == 0) {
-    possessive = "theirs";
+    genitive = "theirs";
   }
   if (randomNumber % 3 == 1) {
-    possessive = "hers";
+    genitive = "hers";
   }
   if (randomNumber % 3 == 2) {
-    possessive = "his";
+    genitive = "his";
   }
 
-  top = subject + "/";
-  bottom = object + "/" + possessive;
+  topLine = nomative + "/";
+  bottomLine = accusative + "/" + genitive;
 
-  indentTop = (127 - (top.length() * 12)) / 2;
-  indentBottom = (127 - (bottom.length() * 12)) / 2;
+  indentTop = (127 - (topLine.length() * 12)) / 2;
+  indentBottom = (127 - (bottomLine.length() * 12)) / 2;
 
-  if (bottom.length() == 10) {
+  if (bottomLine.length() == 10) {
     indentBottom = 0;
   }
 
   display.clearDisplay();
   display.setCursor(indentTop, 0);
-  display.print(top);
+  display.print(topLine);
   display.setCursor(indentBottom, 16);
-  display.print(bottom);
+  display.print(bottomLine);
   display.display();
   delay(random(2000, 10001));
 }

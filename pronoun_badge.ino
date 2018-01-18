@@ -67,6 +67,10 @@ void loop() {
   indentTop = (127 - (top.length() * 12)) / 2;
   indentBottom = (127 - (bottom.length() * 12)) / 2;
 
+  if (bottom.length() == 10) {
+    indentBottom = 0;
+  }
+
   display.clearDisplay();
   display.setCursor(indentTop, 0);
   display.print(top);
